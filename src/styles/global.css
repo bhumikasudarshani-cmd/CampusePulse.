@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Keep your existing :root colors from Image 1 */
+:root {
+  --bg: #f9fafb;
+  --text: #111827;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --glow: rgba(99, 102, 241, 0.6);
+}
+
+/* Dark theme colors from your first image */
+[data-theme='dark'] {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --card: #1e293b;
+  --border: #334155;
+  --glow: rgba(139, 92, 246, 0.8);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Cleaner font like Figma */
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+
+
+
+.events-grid {
+  display: grid;
+  /* repeat(3, 1fr) ensures exactly 3 cards per row on large screens */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; /* Space between cards */
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Coordination for mobile: stack cards in 1 column on small screens */
+@media (max-width: 1024px) {
+  .events-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+/* Card Styling */
+.event-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.card-image-container {
+  position: relative; /* Required so badge stays inside */
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.card-body {
+  padding: 20px;
+}
+
+.calendar-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #7c3aed; /* Figma Purple */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.card-body p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px; /* Makes text slightly smaller */
+  color: #64748b;  /* Makes text a soft gray */
+  margin: 10px 0;
+}
+
+.card-body h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between icon and text */
+}
+
+/* The Purple Icon Background */
+.logo-icon-container {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9); /* Purple gradient */
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px; /* Matches the squircle shape in figma */
+  box-shadow: 0 4px 10px rgba(124, 58, 237, 0.2);
+}
+
+.logo-emoji {
+  font-size: 24px;
+  filter: brightness(1.2); /* Makes the emoji look more vibrant */
+}
+
+/* Text Styling */
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-title {
+  font-size: 26px; /* Larger, bold font */
+  font-weight: 800;
+  color: #1e293b; /* Dark slate color */
+  line-height: 1;
+  margin-bottom: 2px;
+  letter-spacing: -0.5px;
+}
+
+
+
+.logo strong {
+  display: block;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.logo small {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px; /* Wide padding matches Figma */
+  background: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px; /* Coordination between buttons */
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: #475569;
+  transition: 0.2s;
+}
+
+.nav-btn.active {
+  background: #f1f5f9; /* Soft blue/gray background for active state */
+  color: #7c3aed;
+}
+/* Hero Section */
+.hero {
+  padding: 60px 80px 40px 80px; /* Adjusted padding for better vertical coordination */
+  text-align: left;
+}
+
+.hero h1 {
+  font-size: 48px;
+  color: #7c3aed; 
+  margin-bottom: 10px;
+  
+  /* ADD THESE FOR FIGMA COORDINATION */
+  font-weight: 800; /* Makes it extra bold like the screenshot */
+  line-height: 1.1; /* Keeps the words tight together */
+  letter-spacing: -0.03em; /* Tightens the letters for a professional look */
+}
+
+.hero p {
+  font-size: 18px;
+  color: #64748b;
+  margin-bottom: 30px;
+}
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 100%; /* Spans the width of the hero section */
+  margin-top: 30px;
+}
+
+.main-search {
+  width: 100%;
+  padding: 20px 60px; /* Extra padding on right for the button */
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  font-size: 18px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+}
+
+.filter-icon-btn {
+  position: absolute;
+  right: 12px; /* Pins the button inside the search bar */
+  background: #7c3aed;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+
+
+
+
+.search-icon {
+  position: absolute;
+  left: 20px;
+  color: #94a3b8;
+}
+
+.category-list {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+  overflow-x: auto; /* Coordination for mobile scrolling */
+  padding-bottom: 10px;
+}
+
+.category-pill {
+  white-space: nowrap; /* Keeps pills on one line */
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
+.category-pill.active { background: #7c3aed; color: white; }
+.category-pill.tech { background: #dbeafe; color: #1e40af; }
+.category-pill.music { background: #fce7f3; color: #9d174d; }
+.category-pill.sports { background: #dcfce7; color: #166534; }
+
+.section-title {
+  padding: 0 80px;
+  margin-top: 20px;
+  font-size: 24px;
+}
+/* 1. Page Container Refinement */
+.container {
+  max-width: 1400px; /* Wider container for the dashboard look */
+  margin: 0 auto;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+/* FINAL CATEGORY BADGE - Matches Figma Video */
+.badge {
+  position: absolute; /* Essential to float over the image */
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  backdrop-filter: blur(4px); /* Adds the modern frosted look */
+  padding: 6px 14px;
+  border-radius: 8px; /* The specific "Squircle" corner from the video */
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle lift off the image */
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* AI Pick Badge - Matches Top Right in Video */
+.ai-pick {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 14px;
+  border-radius: 20px; /* Pill shape unlike the square category badge */
+  font-size: 12px;
+  font-weight: 600;
+  color: #7c3aed; /* Purple text for AI Pick */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.ai-pick .dot {
+  color: #7c3aed; /* Purple dot */
+  font-size: 10px;
+}
+
+/* 3. Card Image Hover Effect */
+.event-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Fix for spacing between categories and grid */
+.section-title {
+  margin-top: 40px;
+  margin-bottom: 25px;
+  color: #1e293b;
+}
+.category-pill.active {
+  background: #7c3aed !important;
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+}
+
+.category-pill:hover {
+  transform: scale(1.05);
+}
+/* Update the main container padding */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px; /* Add side padding to the whole page */
+  background-color: #ffffff;
+}
+
+/* Adjust the Navbar to feel more balanced */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0; /* Vertical padding only, let container handle sides */
+  background: transparent; /* Makes it feel more modern */
+}
+
+/* Fix the Search Input to look exactly like Figma */
+.main-search {
+  width: 100%;
+  padding: 18px 25px 18px 50px;
+  border-radius: 12px; /* Slightly less rounded */
+  border: 1px solid #edf2f7;
+  font-size: 16px;
+  background-color: #f8fafc; /* Subtle light background */
+  box-shadow: none; /* Figma uses a clean border rather than shadow */
+}
+/* Calendar Button Hover */
+.calendar-btn:hover {
+  background: #6d28d9; /* Darker purple on hover */
+  transform: scale(1.02);
+  transition: all 0.2s ease;
+}
+
+/* Nav links hover */
+.nav-btn:hover {
+  color: #7c3aed;
+  background: #f5f3ff;
+}
+
+/* Category pills subtle lift */
+.category-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+/* No Results Message Styling */
+.no-results {
+  grid-column: 1 / -1; /* This makes the message span the whole width of the grid */
+  text-align: center;
+  padding: 80px 20px;
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 2px dashed #e2e8f0;
+}
+
+.no-results h3 {
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.no-results p {
+  color: #64748b;
+}
+.logo-name {
+  /* From your inspect: --text-2xl & --font-weight-semibold */
+  font-size: 1.5rem; /* var(--text-2xl) */
+  font-weight: 600;   /* var(--font-weight-semibold) */
+  
+  /* From your inspect: --color-gray-900 */
+  color: oklch(21% 0.034 264.665); 
+  
+  /* From your inspect: --tracking-tight & line-height */
+  letter-spacing: -0.025em; 
+  line-height: 1.5;
+  
+  /* Resetting defaults */
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+.logo-tagline {
+  /* Coordinated with your --color-gray-500 and --text-xs variables */
+  font-size: 0.75rem; 
+  color: oklch(55.1% 0.027 264.364);
+  font-weight: 500;
+  margin-top: -2px; /* Pulls it closer to the title like Figma */
+}
+/* Container to give sections consistent breathing room */
+.section-container {
+  padding: 20px 80px 60px 80px; /* Matches hero and navbar horizontal padding */
+}
+
+/* Specific styling for the section title to match the image */
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a; /* Deep slate black from Figma */
+  margin-bottom: 30px;
+  letter-spacing: -0.02em;
+}
+
+/* Coordination for the colored icons inside the cards */
+.icon-blue { color: #3b82f6; font-size: 1.1em; }
+.icon-purple { color: #8b5cf6; font-size: 1.1em; }
+.icon-pink { color: #ec4899; font-size: 1.1em; }
+
+/* The Add to Calendar button icon alignment */
+.plus-icon {
+  margin-right: 8px;
+  font-size: 18px;
+  font-weight: 400;
+}

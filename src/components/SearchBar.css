@@ -1,0 +1,24 @@
+.search {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  transition: width 0.4s, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+.search.open {
+  width: 260px;
+  box-shadow: 0 0 0 2px var(--glow), 0 0 15px var(--glow);
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+}
