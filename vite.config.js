@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/CampusePulse/',   // 👈 IMPORTANT (repo name)
+  base: '/CampusePulse/',  // 👈 IMPORTANT: your repo name EXACTLY
 })
